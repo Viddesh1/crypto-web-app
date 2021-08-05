@@ -1,0 +1,26 @@
+{% extends 'mycrypto/base.html' %}
+{% block title %}Crypto{% endblock title %}
+{% block content1 %}
+<div class="container mt-2">
+    <div class="row">
+        <h1 class="text-light">Welcome to Crypto Encrypt Page</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="col-sm-12">
+        <div class="form-floating my-2">
+            <form action="{% url 'result' %}" method="POST">
+                {% csrf_token %}
+                <textarea class="form-control" placeholder="Add your message here" id="desc" name='desc' rows="4" cols="50"></textarea>
+                <button type="submit" class="btn btn-success my-2">Encrypt</button>
+                <br />
+                <select name="algo" id="algo">
+                    <option value="1">1:Reverse</option>
+                    <option value="2">2:one</option>
+                </select>
+                {% comment %} <button type="submit" formaction="{% url 'result' %}">Submit to another page</button> {% endcomment %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content1 %}
